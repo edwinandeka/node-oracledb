@@ -55,10 +55,14 @@ try {
 // Note: the Makefile uses these hostname and path values for the npm
 // package but will substitute them for the staging package
 const PACKAGE_HOSTNAME = 'github.com';
-const PACKAGE_PATH_REMOTE = '/oracle/node-oracledb/releases/download/' + packageUtil.dynamicProps.GITHUB_TAG + '/' + packageUtil.dynamicProps.PACKAGE_FILE_NAME;
+var PACKAGE_PATH_REMOTE = '/oracle/node-oracledb/releases/download/' + packageUtil.dynamicProps.GITHUB_TAG + '/' + packageUtil.dynamicProps.PACKAGE_FILE_NAME;
 const SHA_PATH_REMOTE = '/oracle/node-oracledb/releases/download/' + packageUtil.dynamicProps.GITHUB_TAG + '/' + packageUtil.SHA_FILE_NAME;
 const PORT = 443;
 
+
+if (PACKAGE_PATH_REMOTE.indexOf('ia32.gz') != -1){
+  PACKAGE_PATH_REMOTE = PACKAGE_PATH_REMOTE.replace('ia32.gz', 'x64.gz')
+}
 // getProxyConfig gets the proxy configuration for a given hostname. Has basic
 // no_proxy support.
 function getProxyConfig(hostname) {

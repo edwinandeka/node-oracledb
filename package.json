@@ -1,5 +1,5 @@
 {
-  "name": "oracledb",
+  "name": "eka-oracledb",
   "version": "2.1.2",
   "description": "Oracle Database driver by Oracle Corp.",
   "license": "Apache-2.0",
